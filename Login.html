@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watts Guard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/Rectangle-1.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <!--start style this page-->
+    <style>
+        .head-login {
+            font-size: 40px;
+            font-weight: 400;
+            color: #4E5F53;
+        }
+
+        .label {
+            color: #232323;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        /* تصغير حجم الخط عند الشاشات الصغيرة */
+        @media (max-width: 576px) {
+            .label {
+                font-size: 24px;
+                /* حجم أصغر على الموبايل */
+            }
+        }
+
+        .btn-primary {
+            background-color: #4E5F53;
+            border: solid 1px #4E5F53;
+            font-size: 32px;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            border: solid 1px #4E5F53;
+            font-size: 32px;
+            color: #4E5F53;
+            font-weight: 400;
+        }
+    </style>
+    <!--end style this page-->
+</head>
+
+<body>
+    <div class="container text-center align-content-center my-5">
+        <h1 class="text-center head-login mb-5 ">تسجيل حساب جديد</h1>
+
+        <form>
+            <div class="form-group row my-3 justify-content-center">
+                <label for="one" class="col-sm-5 col-12 text-sm-right text-center col-form-label label">الرقم
+                    القومي</label>
+                <div class="col-sm-7 col-12 text-center">
+                    <input type="text" class="form-control  py-4 mx-auto" id="one" placeholder="أدخل الرقم القومي">
+                </div>
+            </div><!--الرقم القومي-->
+            <div class="form-group row my-3 justify-content-center">
+                <label for="tow" class="col-sm-5 col-12 text-sm-right text-center col-form-label label">كلمة المرور
+                </label>
+                <div class="col-sm-7 col-12 text-center">
+                    <input type="password" class="form-control  py-4 mx-auto" id="tow" placeholder="أدخل كلمة المرور  ">
+                </div>
+            </div><!--كلمة المرور-->
+        </form>
+        <button class="btn btn-primary mt-5 w-50" onclick="window.location.href='Home.html';">دخول</button>
+        <div class="group-links d-flex justify-content-center ">
+            <p style="color: #858585;" class="m-2"> ليس لديك حساب؟   </p>
+            <a href="Signup.html" style="color: #4E5F53;" class="m-2">  تسجيل حساب جديد</a>
+        </div>
+    </div><!--container-->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

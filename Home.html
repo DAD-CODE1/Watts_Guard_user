@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watts Guard</title>
+    <link rel="icon" type="image/png" href="images/Rectangle-1.png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!--start style this page-->
+    <style>
+        /*start header*/
+        .icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #4E5F53;
+            border: solid 1px #4E5F53;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 22px;
+            margin-left: 15px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .icons a:hover {
+            background-color: #ffffff;
+            color: #4E5F53;
+        }
+
+
+        .icons a.notification {
+            position: relative;
+        }
+
+        .icons a.notification::after {
+            content: "1";
+            /* عدد الإشعارات */
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            font-size: 10px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        /*end header*/
+        .btn-primary {
+            background-color: #4E5F53;
+            border: solid 1px #4E5F53;
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+        .text-s{
+            font-size: 40px;
+        }
+
+        @media (max-width: 576px) {
+            .text-s{
+            font-size: 24px;
+        }
+            .btn-primary {
+                background-color: #4E5F53;
+                border: solid 1px #4E5F53;
+                font-size: 11px;
+                color: #FFFFFF;
+                font-weight: 400;
+            }
+            .btn-primary:hover {
+            background-color: #ffffff;
+            border: solid 1px #4E5F53;
+            font-size: 11px;
+            color: #4E5F53;
+            font-weight: 400;
+        }
+        }
+
+        .btn-primary:hover {
+            background-color: #ffffff;
+            border: solid 1px #4E5F53;
+            font-size: 18px;
+            color: #4E5F53;
+            font-weight: 400;
+        }
+
+        .btn-primar {
+            background-color: #4E5F53;
+            border: solid 1px #4E5F53;
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+     
+
+        .btn-primar:hover {
+            background-color: #ffffff;
+            border: solid 1px #4E5F53;
+            font-size: 18px;
+            color: #4E5F53;
+            font-weight: 400;
+        }
+        .btn-sec {
+            background-color: #EF1915;
+            border: solid 1px #EF1915;
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+        .btn-sec:hover {
+            background-color: #ffffff;
+            border: solid 1px #EF1915;
+            font-size: 18px;
+            color: #EF1915;
+            font-weight: 400;
+        }
+
+        .card-bg {
+            background-color: #D8E9DD;
+        }
+
+
+        /*start progress*/
+        .progress-container {
+            width: 100%;
+            max-width: 500px;
+            margin: auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            direction: rtl;
+        }
+
+        /* تحريك النصوص */
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .left-label {
+            text-align: left;
+            flex: 1;
+        }
+
+        .center-label {
+            text-align: center;
+            flex: 1;
+        }
+
+        .progress {
+            height: 60px;
+            background-color: #ffffff;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        /* تحريك 50% داخل الجزء الأبيض */
+        .progress-bar {
+            background-color: #9aa999;
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .progress-text {
+            position: absolute;
+            right: 5px;
+            color: black;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 19px;
+        }
+
+        .legend-box {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+
+        .consumed {
+            background-color: #9aa999;
+        }
+
+        .total {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+        }
+
+
+        /*end progress*/
+        .time-display {
+    font-size: 8px;
+    font-weight: bold;
+    text-align: center;
+    direction: rtl;
+    color: #4E5F53;
+}
+
+.label {
+    font-size: 12px;
+    margin: 0 10px;
+}
+
+.time {
+    font-size: 20px;
+}
+.car {
+    overflow: hidden; /* يمنع الصورة من الخروج خارج الكارد */
+}
+
+.car img {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.car:hover img {
+    transform: scale(1.1); /* تكبير بنسبة 10% */
+}
+
+    </style>
+    <!--end style this page-->
+</head>
+
+<body>
+
+    <div class="header container py-5 d-flex justify-content-between">
+        <div class="icons">
+            <a href="#"><i class="far fa-user"></i></a>
+            <a href="#" class="notification"><i class="far fa-bell"></i></a>
+        </div>
+        <h1
+        class="text-s"
+            style="color: #4E5F53; font-weight: 400; padding-bottom: 10px; border-bottom: solid 3px #4E5F53;">
+            الصفحة الرئيسية</h1>
+    </div><!--header-->
+
+    <div class="status container d-flex justify-content-end align-items-center">
+        <a href="#" class="btn btn-primar mx-3 py-2 d-flex align-items-center justify-content-center">
+            <i class="fa-solid fa-check"></i>
+        </a>
+        <a href="#" class="btn btn-sec mx-3 d-flex py-2 align-items-center justify-content-center">
+            <i class="fa-solid fa-xmark"></i>
+        </a>
+        <p class="px-3" style="color: #232323; font-size: 32px; font-weight: 400; margin: 0;">:</p>
+        <p style="color: #232323; font-size: 32px; font-weight: 400; margin: 0;">
+            الحاله
+        </p>
+    </div><!--status-->
+
+    <div class="statstic  my-5 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 used my-2">
+                    <div class="card rounded card-bg w-100 p-4 text-center">
+                        <h3 style="font-size: 30px; color: #4E5F53; font-weight: 400;">الإستهلاك</h3>
+                        <hr style="border: 1px solid white; margin: 10px 0;">
+
+                        <div class="card my-2 rounded p-2" style="background-color: #4E5F53;">
+                            <div class="row d-flex align-items-center text-center">
+                                <div class="col-7">
+                                    <div class="num d-flex justify-content-between align-items-center">
+                                        <p style="font-size: 18px;color: #FFFFFF;">جنيه مصري</p>
+                                        <p style="font-size: 18px;color: #FFFFFF;">800</p>
+                                    </div>
+                                    <hr style="border: 1px solid white; margin: 5px 0;">
+                                    <div class="num d-flex justify-content-between align-items-center">
+                                        <p style="font-size: 18px;color: #FFFFFF;"> وات</p>
+                                        <p style="font-size: 18px;color: #FFFFFF;">200</p>
+                                    </div>
+                                </div>
+                                <div class="col-5 d-flex align-items-center justify-content-center">
+                                    <p style="font-size: 18px;color: #FFFFFF;">الشهر الماضي</p>
+                                </div>
+                            </div>
+                        </div><!--card1-->
+
+                        <div class="card rounded p-2 my-2" style="background-color: #4E5F53;">
+                            <div class="row d-flex align-items-center text-center">
+                                <div class="col-7">
+                                    <div class="num d-flex justify-content-between align-items-center">
+                                        <p style="font-size: 18px;color: #FFFFFF;">جنيه مصري</p>
+                                        <p style="font-size: 18px;color: #FFFFFF;">800</p>
+                                    </div>
+                                    <hr style="border: 1px solid white; margin: 5px 0;">
+                                    <div class="num d-flex justify-content-between align-items-center">
+                                        <p style="font-size: 18px;color: #FFFFFF;"> وات</p>
+                                        <p style="font-size: 18px;color: #FFFFFF;">200</p>
+                                    </div>
+                                </div>
+                                <div class="col-5 d-flex align-items-center justify-content-center">
+                                    <p style="font-size: 18px;color: #FFFFFF;"> الشهر الحالي</p>
+                                </div>
+                            </div>
+                        </div><!--card2-->
+
+                    </div>
+                </div><!--الاستهلاك used-->
+
+                <div class="col-md-7 Budget">
+                    <div class="card my-2 rounded card-bg p-4">
+                        <div class="head-budget d-flex justify-content-between align-items-center">
+                            <button class="btn btn-primary w-25 d-flex justify-content-between align-items-center">
+                                <i class="fas fa-caret-down ml-2 mx-1"></i> جنيه مصري
+                            </button>
+                            <p style="color: #4E5F53; font-size: 32px; font-weight: 400;">الميزانية</p>
+                        </div>
+                        <hr style="border: 1px solid white; margin: 10px 0;">
+                        <div class="progress-container mt-4">
+                            <div class="progress-labels d-flex ">
+                                <span class="left-label">ج.م 250</span>
+                                <span class="center-label">ج.م 500</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50"
+                                    aria-valuemin="0" aria-valuemax="100">
+                                    <span class="progress-text">50%</span>
+                                </div>
+                            </div>
+                            <div class="legend d-flex justify-content-center align-items-center my-5">
+                                <div class="legend-item d-flex align-items-center">
+                                    <div class="legend-box consumed"></div>
+                                    <span>تم استهلاكه</span>
+                                </div>
+                                <div class="legend-item d-flex align-items-center ml-4">
+                                    <div class="legend-box total"></div>
+                                    <span>القيمة الكلية</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--budget الميزانيه-->
+
+            </div>
+        </div>
+
+    </div><!--statstic-->
+
+    <div class="Devices my-5">
+        <div class="container">
+            <div class="card text-center p-5  " style="border: solid 2px #4E5F53;">
+                <h1 style="font-size: 32px; font-weight: 400; color: #4E5F53;" >الأجهزة</h1>
+                <div class="row my-3">
+                    <div class="col-md-3">
+                        <div class="card car shadow w-100 rounded text-center my-3" style="background-color: #D8E9DD;">
+                            <a href="Device-Management.html"><img src="images/Frame 48.png" class="rounded" alt="Device-fan"></a>
+
+                            <h3 style="font-size: 18px; color: #232323;" class="mt-3">مروحة Toshiba</h3>
+                            <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                            <div class="colection m-2">
+                                <div class="d-flex justify-content-between">
+                                    <p style="direction: rtl; text-align: right;">200 <span>وات</span></p>
+
+
+                                    <p>  <span>:</span> الإستهلاك  </p>
+                                </div>
+                                <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="time-display">
+                                        <span class="label">ساعة</span>
+                                        <span class="label">دقيقة</span><br>
+                                        <span class="time mx-3">2</span> : <span class="time mx-3">42</span>
+                                    </p>
+                                    
+                                    <p>  <span>:</span> وقت التشغيل  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--جهاز 1-->
+                    <div class="col-md-3">
+                        <div class="card car shadow w-100 rounded text-center my-3" style="background-color: #D8E9DD;">
+                            <a href="Device-Management.html"><img src="images/Frame 48 (1).png" class="rounded" alt="Device-fan"></a>
+                            <h3 style="font-size: 18px; color: #232323;" class="mt-3">مروحة Toshiba</h3>
+                            <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                            <div class="colection m-2">
+                                <div class="d-flex justify-content-between">
+                                    <p style="direction: rtl; text-align: right;">200 <span>وات</span></p>
+
+
+                                    <p>  <span>:</span> الإستهلاك  </p>
+                                </div>
+                                <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="time-display">
+                                        <span class="label">ساعة</span>
+                                        <span class="label">دقيقة</span><br>
+                                        <span class="time mx-3">2</span> : <span class="time mx-3">42</span>
+                                    </p>
+                                    
+                                    <p>  <span>:</span> وقت التشغيل  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--جهاز 2-->
+                    <div class="col-md-3">
+                        <div class="card car shadow w-100 rounded text-center my-3" style="background-color: #D8E9DD;">
+                            <a href="Device-Management.html"><img src="images/Frame 48.png" class="rounded" alt="Device-fan"></a>
+
+
+                            <h3 style="font-size: 18px; color: #232323;" class="mt-3">مروحة Toshiba</h3>
+                            <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                            <div class="colection m-2">
+                                <div class="d-flex justify-content-between">
+                                    <p style="direction: rtl; text-align: right;">200 <span>وات</span></p>
+
+
+                                    <p>  <span>:</span> الإستهلاك  </p>
+                                </div>
+                                <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="time-display">
+                                        <span class="label">ساعة</span>
+                                        <span class="label">دقيقة</span><br>
+                                        <span class="time mx-3">2</span> : <span class="time mx-3">42</span>
+                                    </p>
+                                    
+                                    <p>  <span>:</span> وقت التشغيل  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--جهاز 3-->
+                    <div class="col-md-3">
+                        <div class="card car shadow w-100 rounded text-center my-3" style="background-color: #D8E9DD;">
+                            <a href="Device-Management.html"><img src="images/Frame 48 (1).png" class="rounded" alt="Device-fan"></a>
+                            
+                            <h3 style="font-size: 18px; color: #232323;" class="mt-3">مروحة Toshiba</h3>
+                            <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                            <div class="colection m-2">
+                                <div class="d-flex justify-content-between">
+                                    <p style="direction: rtl; text-align: right;">200 <span>وات</span></p>
+
+
+                                    <p>  <span>:</span> الإستهلاك  </p>
+                                </div>
+                                <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="time-display">
+                                        <span class="label">ساعة</span>
+                                        <span class="label">دقيقة</span><br>
+                                        <span class="time mx-3">2</span> : <span class="time mx-3">42</span>
+                                    </p>
+                                    
+                                    <p>  <span>:</span> وقت التشغيل  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--جهاز 4-->
+                    <div class="col-md-3">
+                        <div class="card car shadow w-100 rounded text-center my-3" style="background-color: #D8E9DD;">
+                            <a href="Device-Management.html"><img src="images/Frame 48.png" class="rounded" alt="Device-fan"></a>
+                            <h3 style="font-size: 18px; color: #232323;" class="mt-3">مروحة Toshiba</h3>
+                            <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                            <div class="colection m-2">
+                                <div class="d-flex justify-content-between">
+                                    <p style="direction: rtl; text-align: right;">200 <span>وات</span></p>
+
+
+                                    <p>  <span>:</span> الإستهلاك  </p>
+                                </div>
+                                <hr style="border: 1px solid #A4B2A5; margin: 10px 0;">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="time-display">
+                                        <span class="label">ساعة</span>
+                                        <span class="label">دقيقة</span><br>
+                                        <span class="time mx-3">2</span> : <span class="time mx-3">42</span>
+                                    </p>
+                                    
+                                    <p>  <span>:</span> وقت التشغيل  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--جهاز 5-->
+                    <div class="col-md-3">
+                        <a href="Add-device1.html"><img src="images/Frame 81.png" alt=""></a>
+                    </div><!--جهاز 5-->
+                </div>
+            </div>
+        </div>
+    </div><!--Devices-->
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+</html>
